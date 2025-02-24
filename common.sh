@@ -629,6 +629,11 @@ else
   echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main" >> "feeds.conf.default"
 fi
 
+# lucky
+find . -type d -name '*luci-app-lucky*' -o -name '*lucky*' | xargs -i rm -rf {}
+sed -i '/lucky/d' "feeds.conf.default"
+echo "src-git lucky https://github.com/gdy666/luci-app-lucky.git;main" >> "feeds.conf.default"
+
 # openclash
 find . -type d -name '*luci-app-openclash*' -o -name '*OpenClash*' | xargs -i rm -rf {}
 sed -i '/OpenClash/d' "feeds.conf.default"
