@@ -632,7 +632,8 @@ fi
 # lucky
 find . -type d -name '*luci-app-lucky*' -o -name '*lucky*' | xargs -i rm -rf {}
 sed -i '/lucky/d' "feeds.conf.default"
-echo "src-git lucky https://github.com/gdy666/luci-app-lucky.git;main" >> "feeds.conf.default"
+# echo "src-git lucky https://github.com/gdy666/luci-app-lucky.git;main" >> "feeds.conf.default"
+echo "src-git lucky https://github.com/sirpdboy/luci-app-lucky.git;main" >> "feeds.conf.default"
 
 # openclash
 find . -type d -name '*luci-app-openclash*' -o -name '*OpenClash*' | xargs -i rm -rf {}
