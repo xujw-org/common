@@ -67,6 +67,14 @@ OFFICIAL)
   variable LUCI_EDITION="$(echo "${REPO_BRANCH}" |sed 's/openwrt-//g')"
   variable GENE_PATH="${HOME_PATH}/package/base-files/files/bin/config_generate"
 ;;
+ISTOREOS)
+  variable REPO_URL="https://github.com/istoreos/istoreos"
+  variable SOURCE="iStoreOS"
+  variable SOURCE_OWNER="istoreos"
+  variable DISTRIB_SOURCECODE="istoreos"
+  variable LUCI_EDITION="$(echo "${REPO_BRANCH}" | sed 's/istoreos-//g')"
+  variable GENE_PATH="${HOME_PATH}/package/base-files/files/bin/config_generate"
+;;
 MT798X)
   if [[ "${REPO_BRANCH}" == "hanwckf-21.02" ]]; then
     echo "hanwckf-21.02"
@@ -94,7 +102,7 @@ MT798X)
   fi
 ;;
 *)
-  TIME r "不支持${SOURCE_CODE}此源码，当前只支持COOLSNOWWOLF、LIENOL、IMMORTALWRT、XWRT、OFFICIALT、MT798X"
+  TIME r "不支持${SOURCE_CODE}此源码，当前只支持COOLSNOWWOLF、LIENOL、IMMORTALWRT、XWRT、OFFICIAL、MT798X、ISTOREOS"
   exit 1
 ;;
 esac
@@ -378,6 +386,13 @@ if [[ "${REPO_BRANCH}" =~ (main|master) ]]; then
 fi
 }
 
+function Diy_ISTOREOS() {
+    cd ${HOME_PATH}
+    # iStoreOS 特有的处理逻辑
+    # 如果 iStoreOS 的某些自带插件与 feeds 里的冲突，可以在这里删除 feeds 里的
+    # 例如：
+    # rm -rf ${HOME_PATH}/feeds/packages/net/ariang
+}
 
 function Diy_MT798X() {
 cd ${HOME_PATH}
