@@ -1323,6 +1323,10 @@ if [[ -n "$(ls -1 |grep -E 'immortalwrt')" ]]; then
   rename "s/^immortalwrt/openwrt/" *
   sed -i 's/immortalwrt/openwrt/g' `egrep "immortalwrt" -rl ./`
 fi
+if [[ -n "$(ls -1 |grep -E 'istoreos')" ]]; then
+  rename "s/^istoreos/openwrt/" *
+  sed -i 's/istoreos/openwrt/g' `egrep "istoreos" -rl ./`
+fi
 TIME g "整理前的全部文件"
 ls -1
 for X in $(cat ${CLEAR_PATH} |sed "s/.*${TARGET_BOARD}//g"); do
