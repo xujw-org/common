@@ -227,6 +227,7 @@ TIME y "正在修复依赖包 Hash 校验..."
 find feeds -name "Makefile" | xargs grep -l "PKG_NAME:=shadowsocksr-libev" | xargs sed -i 's/^PKG_HASH:.*/PKG_HASH:=skip/' || true
 find feeds -name "Makefile" | xargs grep -l "PKG_NAME:=simple-obfs" | xargs sed -i 's/^PKG_HASH:.*/PKG_HASH:=skip/' || true
 find feeds -name "Makefile" | xargs grep -l "PKG_NAME:=trojan-plus" | xargs sed -i 's/^PKG_HASH:.*/PKG_HASH:=skip/' || true
+find feeds -name "Makefile" | xargs grep -l "PKG_NAME:=xray-core" | xargs sed -i 's/^PKG_HASH:.*/PKG_HASH:=skip/' || true
 # =========================================================
 
 # 更新feeds后再次修改补充
